@@ -18,7 +18,7 @@ namespace WpfApplication
             {
                 var client = new ApiClient<Thing>();
                 request = client.IndexAsync();
-                viewModel.Requests.Add(request);
+                viewModel.Add(request);
                 var things = await request;
 
                 foreach (var thing in things)
@@ -32,7 +32,7 @@ namespace WpfApplication
             }
             finally
             {
-                viewModel.Requests.Remove(request);
+                viewModel.Remove(request);
             }
         }
     }

@@ -17,7 +17,7 @@ namespace WpfApplication
             {
                 var client = new ApiClient<Thing>();
                 request = client.ShowAsync();
-                viewModel.Requests.Add(request);
+                viewModel.Add(request);
 
                 var thing = new ThingVM(await request);
                 viewModel.Add(thing);
@@ -28,7 +28,7 @@ namespace WpfApplication
             }
             finally
             {
-                viewModel.Requests.Remove(request);
+                viewModel.Remove(request);
             }
         }
     }

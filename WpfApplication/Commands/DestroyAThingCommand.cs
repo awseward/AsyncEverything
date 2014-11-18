@@ -26,7 +26,7 @@ namespace WpfApplication
             {
                 var client = new ApiClient<Thing>();
                 request = client.DestroyAsync(viewModel.ToThing());
-                viewModel.Requests.Add(request);
+                viewModel.Add(request);
 
                 var deleted = await request;
                 if (deleted && viewModel.MainVM != null)
@@ -40,7 +40,7 @@ namespace WpfApplication
             }
             finally
             {
-                viewModel.Requests.Remove(request);
+                viewModel.Remove(request);
             }
         }
     }

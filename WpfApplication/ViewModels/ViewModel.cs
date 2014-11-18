@@ -32,6 +32,16 @@ namespace WpfApplication
             PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
+        public void Add(Task item)
+        {
+            _requests.Add(item);
+        }
+
+        public bool Remove(Task item)
+        {
+            return _requests.Remove(item);
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }
