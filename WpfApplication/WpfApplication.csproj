@@ -60,9 +60,9 @@
     <Compile Include="Commands\DestroyAThingCommand.cs" />
     <Compile Include="Commands\GetAThingCommand.cs" />
     <Compile Include="Commands\GetThingsCommand.cs" />
-    <Compile Include="NumberMatchingConverter.cs" />
-    <Compile Include="ViewModel.cs" />
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Converters\NumberMatchingConverter.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -70,8 +70,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainVM.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

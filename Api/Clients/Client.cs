@@ -41,7 +41,5 @@ namespace Api
                 yield return new T();
             }
         }
-
-
     }
 }

@@ -42,12 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiClient.cs" />
-    <Compile Include="BrokenClient.cs" />
-    <Compile Include="Client.cs" />
-    <Compile Include="IClient.cs" />
-    <Compile Include="LocalClient.cs" />
-    <Compile Include="Thing.cs" />
+    <Compile Include="Clients\ApiClient.cs" />
+    <Compile Include="Clients\BrokenClient.cs" />
+    <Compile Include="Clients\Client.cs" />
+    <Compile Include="Clients\IClient.cs" />
+    <Compile Include="Clients\LocalClient.cs" />
+    <Compile Include="Models\Thing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
