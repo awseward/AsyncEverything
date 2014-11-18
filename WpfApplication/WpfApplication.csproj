@@ -105,10 +105,6 @@
       <Project>{3d7bf576-fa5c-4f83-9953-3bf54272db58}</Project>
       <Name>Api</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FakeNetwork\Utilities.csproj">
-      <Project>{8e409b32-21ab-4adb-b94a-d38b4a3fd1ac}</Project>
-      <Name>Utilities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

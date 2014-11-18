@@ -47,7 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FakeNetwork\Utilities.csproj">
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{8e409b32-21ab-4adb-b94a-d38b4a3fd1ac}</Project>
       <Name>Utilities</Name>
     </ProjectReference>
