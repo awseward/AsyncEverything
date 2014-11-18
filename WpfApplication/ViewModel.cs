@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Threading.Tasks;
 
-namespace AsyncEverythingWpf
+namespace WpfApplication
 {
     public abstract class ViewModel : INotifyPropertyChanged
     {

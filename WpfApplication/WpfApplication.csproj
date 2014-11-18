@@ -7,7 +7,7 @@
     <ProjectGuid>{D6724E53-406B-42E7-A76E-0E7BD61E73E9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AsyncEverythingWpf</RootNamespace>
+    <RootNamespace>WpfApplication</RootNamespace>
     <AssemblyName>AsyncEverythingWpf</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

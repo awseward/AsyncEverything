@@ -2,7 +2,7 @@
 using System.Windows;
 using Api;
 
-namespace AsyncEverythingWpf
+namespace WpfApplication
 {
     public class GetThingsCommand : Command<MainVM>
     {

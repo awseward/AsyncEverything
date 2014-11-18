@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Data;
 
-namespace AsyncEverythingWpf
+namespace WpfApplication
 {
     public class NumberMatchingConverter : IValueConverter
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using Api;
 
-namespace AsyncEverythingWpf
+namespace WpfApplication
 {
     public class MainVM : ViewModel
     {

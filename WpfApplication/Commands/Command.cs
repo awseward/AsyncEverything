@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace AsyncEverythingWpf
+namespace WpfApplication
 {
     public abstract class Command<T> : ICommand where T : ViewModel
     {

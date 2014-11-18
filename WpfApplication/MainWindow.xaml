@@ -1,7 +1,7 @@
-﻿<Window x:Class="AsyncEverythingWpf.MainWindow"
+﻿<Window x:Class="WpfApplication.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:AsyncEverythingWpf"
+        xmlns:local="clr-namespace:WpfApplication"
         Title="MainWindow">
     <Window.DataContext>
         <local:MainVM />
