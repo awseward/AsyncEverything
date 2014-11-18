@@ -7,7 +7,7 @@ using WpfApplication.Helpers;
 
 namespace WpfApplication
 {
-    public class GetAThingCommand : Command<MainVM>
+    public class ShowCommand : Command<MainVM>
     {
         protected async override void Execute(MainVM viewModel)
         {

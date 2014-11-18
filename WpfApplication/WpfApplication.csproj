@@ -57,10 +57,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\DestroyAThingCommand.cs" />
-    <Compile Include="Commands\EditAThingCommand.cs" />
-    <Compile Include="Commands\GetAThingCommand.cs" />
-    <Compile Include="Commands\GetThingsCommand.cs" />
+    <Compile Include="Commands\DestroyCommand.cs" />
+    <Compile Include="Commands\EditCommand.cs" />
+    <Compile Include="Commands\ShowCommand.cs" />
+    <Compile Include="Commands\IndexCommand.cs" />
     <Compile Include="Converters\NumberMatchingConverter.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
     <Compile Include="ViewModels\ThingVM.cs" />

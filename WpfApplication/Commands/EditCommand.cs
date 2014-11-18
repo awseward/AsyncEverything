@@ -9,7 +9,7 @@ using WpfApplication.Helpers;
 
 namespace WpfApplication
 {
-    public class EditAThingCommand : Command
+    public class EditCommand : Command
     {
         public override void Execute(object parameter)
         {

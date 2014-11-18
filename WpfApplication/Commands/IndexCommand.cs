@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Api;
@@ -10,28 +8,22 @@ using WpfApplication.Helpers;
 
 namespace WpfApplication
 {
-    public class DestroyAThingCommand : Command<ThingVM>
+    public class IndexCommand : Command<MainVM>
     {
-        public override bool CanExecute(object parameter)
+        protected override async void Execute(MainVM viewModel)
         {
-            // Bad
-            return true;
-        }
-
-        protected override async void Execute(ThingVM viewModel)
-        {
-            Task<bool> request = null;
+            Task<IEnumerable<Thing>> request = null;
 
             try
             {
                 var client = new ApiClient<Thing>();
-                request = client.DestroyAsync(viewModel.ToThing());
+                request = client.IndexAsync();
                 viewModel.Add(request);
+                var things = await request;
 
-                var deleted = await request;
-                if (deleted && viewModel.MainVM != null)
+                foreach (var thing in things)
                 {
-                    viewModel.MainVM.Remove(viewModel);
+                    viewModel.Add(new ThingVM(thing));
                 }
             }
             catch (Exception ex)
