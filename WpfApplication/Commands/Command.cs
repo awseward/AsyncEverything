@@ -3,17 +3,26 @@ using System.Windows.Input;
 
 namespace WpfApplication
 {
-    public abstract class Command<T> : ICommand where T : ViewModel
+    public abstract class Command : ICommand
     {
         public virtual bool CanExecute(object parameter)
         {
-            return parameter != null
-                && parameter is T;
+            return true;
         }
 
         public event EventHandler CanExecuteChanged;
 
-        public void Execute(object parameter)
+        public abstract void Execute(object parameter);
+    }
+
+    public abstract class Command<T> : Command where T : ViewModel
+    {
+        public override bool CanExecute(object parameter)
+        {
+            return base.CanExecute(parameter) && parameter is T;
+        }
+
+        public override void Execute(object parameter)
         {
             if (parameter is T)
             {

@@ -1,27 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using Utilities;
 
 namespace Api
 {
-    public class Client<T> where T : new()
+    public abstract class Client<T> : IClient<T>
+        where T : new()
     {
-        public T Show()
-        {
-            Network.FakeDelay();
-            return new T();
-        }
+        public abstract T Show();
+
+        public abstract IEnumerable<T> Index();
+
+        public abstract bool Destroy(T item);
 
         public Task<T> ShowAsync()
         {
             return Task.Run<T>(() => Show());
-        }
-
-        public IEnumerable<T> Index()
-        {
-            Network.FakeDelay();
-            return BuildIndex().ToArray();
         }
 
         public Task<IEnumerable<T>> IndexAsync()
@@ -29,23 +25,19 @@ namespace Api
             return Task.Run<IEnumerable<T>>(() => Index());
         }
 
-        public T Fail()
+        public Task<bool> DestroyAsync(T item)
         {
-            Network.FakeDelay();
-            throw Network.GetRandomWebException();
+            return Task.Run<bool>(() => Destroy(item));
         }
 
-        public Task<T> FailAsync()
+        protected IEnumerable<T> BuildTCollection(int count)
         {
-            return Task.Run<T>(() => Fail());
-        }
-
-        private IEnumerable<T> BuildIndex()
-        {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < count; i++)
             {
                 yield return new T();
             }
         }
+
+
     }
 }

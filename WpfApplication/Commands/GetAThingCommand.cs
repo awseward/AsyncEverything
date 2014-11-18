@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Threading.Tasks;
 using System.Windows;
 using Api;
 
@@ -8,17 +10,19 @@ namespace WpfApplication
     {
         protected async override void Execute(MainVM viewModel)
         {
-            var client = new Client<Thing>();
-            var request = client.ShowAsync();
+            Task<Thing> request = null;
 
             try
             {
+                var client = new ApiClient<Thing>();
+                request = client.ShowAsync();
+
                 viewModel.Requests.Add(request);
                 viewModel.Things.Add(await request);
             }
-            catch (Exception ex)
+            catch (WebException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Status.ToString());
             }
             finally
             {

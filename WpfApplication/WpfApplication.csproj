@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\DestroyAThingCommand.cs" />
     <Compile Include="Commands\GetAThingCommand.cs" />
     <Compile Include="Commands\GetThingsCommand.cs" />
     <Compile Include="NumberMatchingConverter.cs" />

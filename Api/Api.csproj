@@ -42,7 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiClient.cs" />
+    <Compile Include="BrokenClient.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="IClient.cs" />
+    <Compile Include="LocalClient.cs" />
     <Compile Include="Thing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
