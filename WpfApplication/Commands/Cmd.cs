@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace WpfApplication.Commands
+namespace WpfApplication
 {
-    public abstract class CmdIdea : ICommand
+    public abstract class Cmd : ICommand
     {
         public virtual bool CanExecute(object parameter)
         {
@@ -43,7 +43,7 @@ namespace WpfApplication.Commands
         protected Action _ensure = () => { };
     }
 
-    public abstract class CmdIdea<T> : CmdIdea where T : ViewModel
+    public abstract class Cmd<T> : Cmd where T : ViewModel
     {
         public override bool CanExecute(object parameter)
         {

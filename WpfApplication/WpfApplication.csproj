@@ -56,10 +56,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\CmdIdea.cs" />
+    <Compile Include="Commands\Cmd.cs" />
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\DestroyCommand.cs" />
     <Compile Include="Commands\EditCommand.cs" />
+    <Compile Include="Commands\IndexCmd.cs" />
+    <Compile Include="Commands\ShowCmd.cs" />
     <Compile Include="Commands\ShowCommand.cs" />
     <Compile Include="Commands\IndexCommand.cs" />
     <Compile Include="Converters\NumberMatchingConverter.cs" />

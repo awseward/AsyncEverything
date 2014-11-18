@@ -66,14 +66,14 @@
             <Button Content="Get a Thing"
                     CommandParameter="{Binding}">
                 <Button.Command>
-                    <local:ShowCommand />
+                    <local:ShowCmd />
                 </Button.Command>
             </Button>
             <Button Margin="0 10 0 0"
                     Content="Get some Things"
                     CommandParameter="{Binding}">
                 <Button.Command>
-                    <local:IndexCommand />
+                    <local:IndexCmd />
                 </Button.Command>
             </Button>
         </StackPanel>
