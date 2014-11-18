@@ -1,0 +1,9 @@
+﻿<Application x:Class="AsyncEverythingWpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AsyncEverythingWpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <local:NumberMatchingConverter x:Key="IsZero" ValueToMatch="0" />
+    </Application.Resources>
+</Application>

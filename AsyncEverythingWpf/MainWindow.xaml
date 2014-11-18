@@ -1,0 +1,49 @@
+﻿<Window x:Class="AsyncEverythingWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:AsyncEverythingWpf"
+        Title="MainWindow">
+    <Window.DataContext>
+        <local:MainVM />
+    </Window.DataContext>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Requests.Count}" Value="0">
+                            <Setter Property="Visibility" Value="Hidden" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                    <Setter Property="Text" Value="{Binding Requests.Count, StringFormat=Waiting on {0} requests}" />
+                    <Setter Property="TextAlignment" Value="Center" />
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <ListView ItemsSource="{Binding Things}"
+                  DisplayMemberPath="Guid"
+                  Margin="0 10"
+                  Grid.Row="1" />
+                  <!--IsEnabled="{Binding Requests.Count, Converter={StaticResource IsZero}}"/>-->
+        <StackPanel Grid.Row="2">
+            <Button Content="Get a Thing"
+                    CommandParameter="{Binding}">
+                <Button.Command>
+                    <local:GetAThingCommand />
+                </Button.Command>
+            </Button>
+            <Button Margin="0 10 0 0"
+                    Content="Get some Things"
+                    CommandParameter="{Binding}">
+                <Button.Command>
+                    <local:GetThingsCommand />
+                </Button.Command>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
