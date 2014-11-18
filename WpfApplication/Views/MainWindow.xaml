@@ -29,15 +29,27 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <ListView ItemsSource="{Binding Things}"
+        <ListView ItemsSource="{Binding ThingVMs}"
                   DisplayMemberPath="Guid"
                   Margin="0 10"
                   Grid.Row="1">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Requests.Count}" Value="0">
+                            <Setter Property="IsEnabled" Value="True" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                    <Setter Property="IsEnabled" Value="False" />
                     <Setter Property="ContextMenu">
                         <Setter.Value>
                             <ContextMenu>
+                                <MenuItem Header="Edit"
+                                          CommandParameter="{Binding}">
+                                    <MenuItem.Command>
+                                        <local:EditAThingCommand />
+                                    </MenuItem.Command>
+                                </MenuItem>
                                 <MenuItem Header="Delete"
                                           CommandParameter="{Binding}">
                                     <MenuItem.Command>

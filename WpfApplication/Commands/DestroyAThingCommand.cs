@@ -6,34 +6,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Api;
+using WpfApplication.Helpers;
 
 namespace WpfApplication
 {
-    public class DestroyAThingCommand : Command
+    public class DestroyAThingCommand : Command<ThingVM>
     {
-        public async override void Execute(object parameter)
+        public override bool CanExecute(object parameter)
+        {
+            // Bad
+            return true;
+        }
+
+        protected override async void Execute(ThingVM viewModel)
         {
             Task<bool> request = null;
 
             try
             {
                 var client = new ApiClient<Thing>();
-                request = client.DestroyAsync((Thing) parameter);
+                request = client.DestroyAsync(viewModel.ToThing());
+                viewModel.Requests.Add(request);
 
-                // Not sure how to add it to its viewmodel...
-
-                var destroySucceeded = await request;
-
-                // Same here as above...
+                var deleted = await request;
+                if (deleted && viewModel.MainVM != null)
+                {
+                    viewModel.MainVM.Remove(viewModel);
+                }
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Status.ToString());
+                ExceptionHelper.DoSomething(ex);
             }
             finally
             {
-                // Would like to remove from requests, but I haven't quite
-                // figured out the best way to do that just yet...
+                viewModel.Requests.Remove(request);
             }
         }
     }

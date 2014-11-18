@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 
@@ -10,6 +11,20 @@ namespace WpfApplication
             new ObservableCollection<Task>();
 
         public ObservableCollection<Task> Requests { get { return _requests; } }
+
+        private DateTime __timestamp = DateTime.Now;
+
+        public DateTime _Timestamp
+        {
+            get { return __timestamp; }
+            set
+            {
+                if (__timestamp == value) { return; }
+
+                __timestamp = value;
+                OnPropertyChanged("_Timestamp");
+            }
+        }
 
         protected void OnPropertyChanged(string name)
         {

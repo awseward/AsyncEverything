@@ -4,6 +4,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 using Api;
+using WpfApplication.Helpers;
 
 namespace WpfApplication
 {
@@ -17,18 +18,17 @@ namespace WpfApplication
             {
                 var client = new ApiClient<Thing>();
                 request = client.IndexAsync();
-
                 viewModel.Requests.Add(request);
                 var things = await request;
 
                 foreach (var thing in things)
                 {
-                    viewModel.Things.Add(thing);
+                    viewModel.Add(new ThingVM(thing));
                 }
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Status.ToString());
+                ExceptionHelper.DoSomething(ex);
             }
             finally
             {
