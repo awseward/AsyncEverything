@@ -10,12 +10,22 @@ namespace Api
     public class BrokenClient<T> : Client<T>
         where T : new()
     {
+        public override T Create(Dictionary<string, string> parameters)
+        {
+            throw Network.GetRandomWebException();
+        }
+
         public override T Show()
         {
             throw Network.GetRandomWebException();
         }
 
         public override IEnumerable<T> Index()
+        {
+            throw Network.GetRandomWebException();
+        }
+
+        public override T Update(Dictionary<string, string> parameters)
         {
             throw Network.GetRandomWebException();
         }

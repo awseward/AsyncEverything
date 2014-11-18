@@ -9,9 +9,13 @@ namespace Api
     public abstract class Client<T> : IClient<T>
         where T : new()
     {
+        public abstract T Create(Dictionary<string, string> parameters);
+
         public abstract T Show();
 
         public abstract IEnumerable<T> Index();
+
+        public abstract T Update(Dictionary<string, string> parameters);
 
         public abstract bool Destroy(T item);
 
